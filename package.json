@@ -3,11 +3,15 @@
   "version": "1.0.0",
   "description": "A simple CAP project.",
   "dependencies": {
+    "20": "^3.1.9",
     "@sap/cds": "^9",
-    "express": "^4"
+    "@sap/xssec": "^4.12.2",
+    "express": "^4",
+    "@cap-js/sqlite": "^2",
+    "node-fetch": "^3.3.2"
   },
   "devDependencies": {
-    "@cap-js/sqlite": "^2",
+    "@sap/cds-dk": "^9",
     "cds-plugin-ui5": "^0.13.0"
   },
   "scripts": {
@@ -20,5 +24,14 @@
   ],
   "sapux": [
     "app/weather_app"
-  ]
+  ],
+  "cds": {
+    "requires": {
+      "db": {
+      "kind": "sqlite",
+      "model": ["srv", "db"]
+      },
+      "html5-repo": true
+    }
+  }
 }
