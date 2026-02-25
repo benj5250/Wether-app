@@ -6,12 +6,14 @@
       "source": "^/?odata/(.*)$",
       "target": "/odata/$1",
       "destination": "srv-api",
-      "csrfProtection": true
+      "csrfProtection": true,
+      "authenticationType": "xsuaa"
     },
     {
       "source": "^(.*)$",
       "service": "html5-apps-repo-rt",
-      "target": "$1"
+      "target": "$1",
+      "authenticationType": "xsuaa"
     }
   ]
 }

@@ -25,18 +25,23 @@ modules:
         properties:
           srv-url: ${default-url}
     requires:
-      []
+      - name: Weather_App-auth
 
   - name: Weather_App-app-deployer
     type: com.sap.application.content
     path: gen
     requires:
+      - name: Weather_App-destination
       - name: srv-api
+        parameters:
+          forwardAuthToken: true
+      - name: Weather_App-html5-repo-runtime
       - name: Weather_App-html5-repo-host
         parameters:
           content-target: true
           config:
             HTML5Runtime_enabled: true
+      - name: Weather_App-auth
     build-parameters:
       build-result: app/
       requires:
@@ -58,9 +63,35 @@ modules:
         []
 
 resources:
-  
+
   - name: Weather_App-html5-repo-host
     type: org.cloudfoundry.managed-service
     parameters:
       service: html5-apps-repo
       service-plan: app-host
+
+  - name: Weather_App-html5-repo-runtime
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: html5-apps-repo
+      service-plan: app-runtime
+
+  - name: Weather_App-auth
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: xsuaa
+      service-plan: application
+      path: ./xs-security.json
+      config:
+        xsappname: Weather_App-${org}-${space}
+        tenant-mode: dedicated
+        oauth2-configuration:
+          credential-types:
+            - "binding-secret"
+            - "x509"
+
+  - name: Weather_App-destination
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: destination
+      service-plan: lite
