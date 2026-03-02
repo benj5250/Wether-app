@@ -4,10 +4,11 @@
   "description": "A simple CAP project.",
   "dependencies": {
     "20": "^3.1.9",
+    "@cap-js/sqlite": "^2",
     "@sap/cds": "^9",
     "@sap/xssec": "^4",
+    "axios": "^1.13.5",
     "express": "^4",
-    "@cap-js/sqlite": "^2",
     "node-fetch": "^3.3.2"
   },
   "devDependencies": {

@@ -10,10 +10,13 @@ annotate WeatherService.WeatherOverviewResult with @(
         Data: [
             { Value: currentTemperature, Label: 'Temperature' },
             { Value: precipitation, Label: 'Precipitation' },
-            { Value: precipitationType, Label: 'Type' },
+            //{ Value: precipitationType, Label: 'Precipitation type' },
             { Value: windSpeed, Label: 'Wind speed' },
-            { $Type: 'UI.DataFieldWithUrl', Label: 'DMI forecast',
-              Value: 'Open forecast', Url: dmiUrl}
+            { $Type: 'UI.DataFieldWithUrl', Label: 'Forecast',
+              Value: 'Open forecast', Url: openWeatherUrl} //Selve linket giver blot alt det json data jeg henter.
+            
+            /*{ $Type: 'UI.DataFieldWithUrl', Label: 'DMI forecast',
+              Value: 'Open forecast', Url: dmiUrl}*/
         ]
     },
-)
+);
