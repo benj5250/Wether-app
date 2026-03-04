@@ -21,7 +21,7 @@ sap.ui.define(
 
             onSearchCity: async function () {
                 const city = this.byId("citySearch").getValue();
-                this.loadWeather(city)
+                this.loadWeather(city);
             },
 
             loadWeather: async function (city) {
@@ -41,10 +41,18 @@ sap.ui.define(
                 // Chart model
                 const oChart = new sap.ui.model.json.JSONModel({data: oResult.hourly});
                 this.getView().setModel(oChart, "chart");
+            },
+/*
+            onSuggest: function(oEvent){
+                const sValue = oEvent.getParameter("suggestValue");
+                const oFilter = new sap.ui.model.Filter(
+                    "name",
+                    sap.ui.model.FilterOperator.Contains,
+                    sValue
+                );
 
-                console.log(oResult.hourly)
-            }
-
+                this.byId("citySearch").getBinding("suggestionItems").filter([oFilter]);
+            }*/
 
             /**
              * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered

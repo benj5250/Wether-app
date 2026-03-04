@@ -8,13 +8,21 @@
     xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds">
 <macros:Page id="Page">
 
-        <!--Søgefelt-->
+        <!--Søgefelt      <SearchField
+        id="citySearch"
+        placeholder="Search city..."
+        enableSuggestions="true"
+        suggest=".onSuggest"
+        search=".onSearchCity"
+        suggestionItems="{
+        path: '/Cities'}">
+        
+        <SuggestionItem id="_IDGenSuggestionItem" text="{name}" />-->
       <SearchField
         id="citySearch"
         placeholder="Search city..."
         search=".onSearchCity">
 
-        <SuggestionItem id="_IDGenSuggestionItem" text="{City}" />
       </SearchField>
 
         <!--Vejr data felterne kommer fra annotations.cds-->

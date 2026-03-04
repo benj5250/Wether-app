@@ -37,7 +37,7 @@
               <viz:VizFrame id="idVizFrame" uiConfig="{applicationSet:'fiori'}"
                 height='600px' width="1200px" vizType='combination' vizProperties='{
                     "title": { "text": "Weather next 24 hours" },
-                    "valueAxis": { "title": { "visible": true, "text": "Values" } },
+                    "valueAxis": { "title": { "visible": true, "text": "Celsius (°C) and mm." } },
                     "categoryAxis": { "title": { "visible": true, "text": "Hour" } },
                     "plotArea": { "gridline": { "visible": true },
                     "dataLabel": { "visible": true }}
